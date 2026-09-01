@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'CustomMontserrat';
+    src: url('/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Define the Bold weight (700) */
+@font-face {
+    font-family: 'CustomMontserrat';
+    src: url('/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
