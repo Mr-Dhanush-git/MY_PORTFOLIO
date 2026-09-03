@@ -1,4 +1,7 @@
 @import "tailwindcss";
+*{
+    cursor: none;
+}
 
 @font-face {
     font-family: 'CustomMontserrat';

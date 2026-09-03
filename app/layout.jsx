@@ -1,9 +1,13 @@
+import Cursor from "../components/Cursor";
 import "./global.css"
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Cursor/>
+        {children}
+      </body>
     </html>
   );
 }

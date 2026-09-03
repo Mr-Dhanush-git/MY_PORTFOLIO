@@ -15,7 +15,7 @@ const Header = () => {
 
   const handleScale = ()=>{
    gsap.to(ref.current, {
-    right:scale ? "-100%" : "0%",
+    top :scale ? "100%" : "0%",
     opacity: scale ? 0 : 1,
     scale: scale ? 0: 1,
     duration: 0.4,
@@ -65,12 +65,12 @@ const Header = () => {
       {/* left part */}
       <div className='flex items-center gap-1'>
         <span className='font-montserrat tracking-[0.04em] italic text-2xl'>Dhanush</span>
-      <div className='bg-gray-500 w-1.5 h-1.5 rounded-full'></div>
+      <div className='relative top-1 bg-gray-500 w-1.5 h-1.5 rounded-full'></div>
 
 
-        <div className='relative overflow-hidden'>
+        <div className='relative top-1 overflow-hidden'>
 
-          <span className='text-[16px] text-transparent block whitespace-nowrap'>
+          <span className='text-[16px] text-transparent italic block whitespace-nowrap'>
             {roles[roles.length - 1]}
           </span>
 
@@ -94,7 +94,7 @@ const Header = () => {
       <nav className = "flex justify-between items-center">
         
         <div className = "flex justify-between items-center">
-          <div className = "relative rounded-full p-2">
+          <div className = "relative rounded-full p-1">
 
             <a
             onClick = {handleScale}
@@ -103,19 +103,19 @@ const Header = () => {
             <span
             ref = {atRef}
             size={24}
-            className='icon font-light text-2xl italic'
+            className='icon font-light text-2xl italic cursor-pointer'
             >@</span>
             </a>
             {scale && (
               <div
               onClick={handleScale}
-              className='fixed cursor-not-allowed w-screen h-screen top-0 left-0 z-[999]'
+              className='fixed w-screen h-screen top-0 left-0 z-[999]'
               />
             )}
 
         <div
           ref = {ref}
-          className = "absolute opacity-0 flex flex-col px-6 py-3 -right-full bg-gradient-to-tl to-[#e4e0e0] from-[#9d9c9c] via-[#e8dbdb] border border-zinc-500 z-[9999] rounded-3xl top-full"
+          className = "absolute opacity-0 flex flex-col px-6 py-3  bg-gradient-to-tl to-[#bfbfbe] from-[#9d9c9c] via-[#ccc7c7] border border-zinc-500 z-[999] rounded-3xl top-full right-full"
           >
           {socialLinks.map((social , ind) => (
             <a
@@ -123,7 +123,7 @@ const Header = () => {
               href = {social.href}
               target = '_blank'
               rel = "noopener noreferrer"
-              className = "social whitespace-nowrap flex gap-2 justify-between text-gray-800 py-2 border-b border-zinc-700 hover:bg-black hover:text-white font-semibold transition-all ease-in duration-400"
+              className = "social whitespace-nowrap flex gap-2 justify-between text-gray-800 py-2 border-b border-zinc-700 font-montserrat font-medium transition-all hover:text-white ease-in duration-400 "
             >
               <span>{social.name}</span>
               <span><GoArrowUpRight /></span>
@@ -139,8 +139,8 @@ const Header = () => {
       className='rounded-full flex gap-1 items-center font-italic px-6 py-3 transition-all ease-in-out duration-300'
 
       >
-        <span className='cursor-pointer font-montserrat tracking-[0.04em] italic text-2xl'>Resume</span>
-        <GoArrowUpRight className='text-2xl'/>
+        <span className='cursor-pointer font-montserrat tracking-[0.04em] italic text-[20px]'>Resume</span>
+        <GoArrowUpRight className='text-2xl relative top-1 right-1'/>
       </a>
 
 
