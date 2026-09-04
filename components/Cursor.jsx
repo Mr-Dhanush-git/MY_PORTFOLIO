@@ -101,7 +101,7 @@ const Cursor = () => {
 
         <div
         ref = {nameRef}
-        className='z-[99999] fixed top-7 left-7 pointer-events-none bg-black text-white px-2 rounded-2xl font-montserret italic text-[13px]'
+        className='z-[99999] fixed top-7 left-7 pointer-events-none bg-black text-white px-2 rounded-2xl font-montserret italic text-[10px]'
         >
             Dhanush
         </div>

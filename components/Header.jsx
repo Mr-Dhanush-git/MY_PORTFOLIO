@@ -15,7 +15,6 @@ const Header = () => {
 
   const handleScale = ()=>{
    gsap.to(ref.current, {
-    top :scale ? "100%" : "0%",
     opacity: scale ? 0 : 1,
     scale: scale ? 0: 1,
     duration: 0.4,
@@ -29,37 +28,39 @@ const Header = () => {
   }
 
 
-  useGSAP(()=>{
-    const t1 = gsap.timeline({
-      repeat: Infinity,
-    });
-
-    roles.forEach((_,ind) => {
-      const nextPosition = -(ind + 1)*100;
-      
-      if(ind === roles.length - 1) {
-        t1.to(tagRef.current, {
-          top: "0%",
-          duration: 0.4,
-          delay:3,
-        });
-      } else {
-        t1.to(tagRef.current,{
-          top: `${nextPosition}%`,
-          duration:0.4,
-          delay:3,
+  useGSAP(() => {
+        const tl = gsap.timeline({ repeat: Infinity });
+        tl.to(tagRef.current, {
+            top: "-100%",
+            duration: 0.4,
+            delay: 3
         })
-      }
-
-    })
-
-
-  })
+        .to(tagRef.current, {
+            top: "-200%",
+            duration: 0.4,
+            delay: 3
+        })
+        .to(tagRef.current, {
+            top: "-300%",
+            duration: 0.4,
+            delay: 3
+        })
+        .to(tagRef.current, {
+            top: "0%",
+            duration: 0.4,
+            delay: 3
+        })
+        .to(tagRef.current, {
+            top: "0%",
+            duration: 0.4,
+            delay: 0.1
+        })
+    },[])
 
 
   return (
 
-    <header className='relative w-full px-[60px] py-[30px]'>
+    <header className='relative w-full px-[80px] py-[30px]'>
 
     <div className='flex justify-between items-center'>
       {/* left part */}
@@ -68,7 +69,7 @@ const Header = () => {
       <div className='relative top-1 bg-gray-500 w-1.5 h-1.5 rounded-full'></div>
 
 
-        <div className='relative top-1 overflow-hidden'>
+        <div className='relative top-1 overflow-hidden '>
 
           <span className='text-[16px] text-transparent italic block whitespace-nowrap'>
             {roles[roles.length - 1]}
@@ -76,7 +77,7 @@ const Header = () => {
 
           <div 
             ref = {tagRef}
-            className='h-full absolute top-0'
+            className='h-full absolute top-0 '
             >
               {roles.map((role , ind) => (
                 <span
@@ -98,39 +99,39 @@ const Header = () => {
 
             <a
             onClick = {handleScale}
-            className='tooltipParent cursur-pointer'
+            className='tooltipParent cursor-pointer'
             >
             <span
             ref = {atRef}
             size={24}
-            className='icon font-light text-2xl italic cursor-pointer'
+            className='relative icon font-light text-2xl italic cursor-pointer'
             >@</span>
             </a>
             {scale && (
               <div
               onClick={handleScale}
-              className='fixed w-screen h-screen top-0 left-0 z-[999]'
+              className='fixed inset-0 z-[998]'
               />
             )}
 
-        <div
-          ref = {ref}
-          className = "absolute opacity-0 flex flex-col px-6 py-3  bg-gradient-to-tl to-[#bfbfbe] from-[#9d9c9c] via-[#ccc7c7] border border-zinc-500 z-[999] rounded-3xl top-full right-full"
-          >
-          {socialLinks.map((social , ind) => (
-            <a
-              key = {social.name}
-              href = {social.href}
-              target = '_blank'
-              rel = "noopener noreferrer"
-              className = "social whitespace-nowrap flex gap-2 justify-between text-gray-800 py-2 border-b border-zinc-700 font-montserrat font-medium transition-all hover:text-white ease-in duration-400 "
-            >
-              <span>{social.name}</span>
-              <span><GoArrowUpRight /></span>
-            </a>
-          ))}
+              <div
+                ref = {ref}
+                className = "absolute flex flex-col px-6 py-3  bg-gradient-to-tl to-[#bfbfbe] from-[#9d9c9c] via-[#ccc7c7] border border-zinc-500 z-[999] rounded-3xl top-[40px] scale-0 origin-top-right "
+                >
+                {socialLinks.map((social , ind) => (
+                  <a
+                    key = {social.name}
+                    href = {social.href}
+                    target = '_blank'
+                    rel = "noopener noreferrer"
+                    className = "social whitespace-nowrap flex gap-2 justify-between text-gray-600 py-2 border-b border-zinc-700 font-montserrat font-medium transition-all hover:text-black ease-in duration-400 italic"
+                  >
+                    <span>{social.name}</span>
+                    <span><GoArrowUpRight /></span>
+                  </a>
+                ))}
 
-        </div>
+              </div>
       </div>
       </div>
 

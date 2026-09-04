@@ -1,3 +1,7 @@
+import { GoHome } from "react-icons/go";
+import { RiComputerLine } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
+
 const roles = [
   "designer",
   "developer",
@@ -6,10 +10,11 @@ const roles = [
 ];
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
-];
+  { name: "Home", href : '#home', logo: <GoHome /> },
+  { name: "Projects" , href: '#projects', logo: <RiComputerLine/> },
+  { name: "About" , href: "#about", logo: <CgProfile/>}
+]
+
 
 const socialLinks = [
   {
@@ -31,5 +36,5 @@ const socialLinks = [
 ];
 
 
-export { roles, navLinks, socialLinks};
+export { roles, navLinks, socialLinks };
 
