@@ -3,9 +3,8 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 const Cursor = () => {
-    const cursorRef = useRef(null)
-    const nameRef = useRef(null)
 
+    const nameRef = useRef(null)
     const defaultCurRef = useRef(null)
     const pointerCurRef = useRef(null)
 
@@ -14,17 +13,35 @@ const Cursor = () => {
     useEffect(() => {
         const moveCursor = (e) => {
 
-            gsap.to(cursorRef.current, {
+            gsap.set(defaultCurRef.current, {
+                xPercent: -50,
+                yPercent: -50,
+            })
+
+            gsap.set(pointerCurRef.current, { 
+                xPercent: -50, 
+                yPercent: -50, 
+            })
+
+            gsap.to(defaultCurRef.current, {
                 x: e.clientX, 
                 y: e.clientY,
+
                 duration:0.15,
                 ease: 'power3.out',
+            })
+
+            gsap.to(pointerCurRef.current, {
+                x:e.clientX,
+                y:e.clientY,
+                duration: 0.15,
+                ease: 'power3.out'
             })
 
             gsap.to(nameRef.current, {
                 x : e.clientX,
                 y : e.clientY,
-                duration: 0.1,
+                duration: 0.15,
                 ease: 'power1.inOut'
             })
 
@@ -81,32 +98,49 @@ const Cursor = () => {
 
   return (
 
-    <div>
-        <div ref={cursorRef}
-        className="fixed top-0 left-0 pointer-events-none z-[99999]"
-        >
-            <img
-             ref={defaultCurRef}
-             src="/CustomCursor/Gear5/gear5cursor.png"
-                alt=""
-                className='w-10 h-10' />   
+    <>
+
+    <img
+        ref={defaultCurRef}
+        src="/CustomCursor/Gear5/gear5cursor.png"
+        alt=""
+        className='fixed
+        top-0 left-0  
+        w-[20px] h-[20px]
+        pointer-events-none
+        z-[999999]' 
+    />   
 
 
-            <img 
-             ref = {pointerCurRef}
-             src="/CustomCursor/Gear5/gear5pointer.png" alt="" 
-             className='absolute top-0 left-0 w-10 h-10 opacity-0'
-             />   
-        </div>
+    <img 
+        ref = {pointerCurRef}
+        src="/CustomCursor/Gear5/gear5pointer.png" alt="" 
+        className='fixed 
+        top-0 left-0  
+        w-[40px] h-[40px] 
+        pointer-events-none
+        opacity-0
+        z-[999999]'
+    />   
 
-        <div
+
+    <div
         ref = {nameRef}
-        className='z-[99999] fixed top-7 left-7 pointer-events-none bg-black text-white px-2 rounded-2xl font-montserret italic text-[10px]'
+        className='z-[99999] 
+        absolute 
+        top-2 left-3 
+        pointer-events-none 
+        bg-gray-300 text-black 
+        px-2 py-1 rounded-2xl 
+        font-montserret 
+        italic 
+        text-[10px]'
         >
-            Dhanush
-        </div>
+        Dhanush
 
     </div>
+
+    </>
 
   )
 }
