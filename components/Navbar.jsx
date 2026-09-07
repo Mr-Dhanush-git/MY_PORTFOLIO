@@ -30,7 +30,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className='fixed top-5 left-1/2 -translate-x-1/2 flex justify-between items-center  gap-9 border border-black-50  rounded-4xl px-6 py-1 pr-1   bg-gradient-to-b from-white via-[#e2e2e2] to-[#c7c4c4]'>
+    <nav className='fixed top-5 left-1/2 -translate-x-1/2 flex justify-between items-center  gap-9 border border-black-50  rounded-4xl px-6 py-1 pr-1   bg-gradient-to-b from-white via-[#e2e2e2] to-[#c7c4c4]  z-[90]'>
         {navLinks.map((nav , ind) => (
             <a
             id = {nav.name.toLowerCase()}
@@ -69,6 +69,7 @@ const Navbar = () => {
             rounded-4xl
             text-black
             font-semibold
+            z-[99999999]
           "
         >
           <motion.div

@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Hero from "../components/hero/Hero";
 import Navbar from "../components/Navbar";
 
 
@@ -7,7 +8,8 @@ export default function Home() {
     <main>
         <div className="header_parent flex">
           <Header/>
-        <Navbar/>
+          <Navbar/>
+          <Hero/>
         </div>
     </main>
   );

@@ -60,7 +60,7 @@ const Header = () => {
 
   return (
 
-    <header className='lg:block hidden relative w-full px-[80px] py-[30px]'>
+    <header className='lg:block hidden relative w-full px-[80px] py-[30px] z-[90]'>
 
     <div className='flex justify-between items-center'>
       {/* left part */}
@@ -92,7 +92,7 @@ const Header = () => {
 
 
       {/* right part */}
-      <nav className = "flex justify-between items-center">
+      <nav className = "relative left-150 flex justify-between items-center">
         
         <div className = "flex justify-between items-center">
           <div className = "relative rounded-full p-1">
