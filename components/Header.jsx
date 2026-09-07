@@ -60,7 +60,7 @@ const Header = () => {
 
   return (
 
-    <header className='relative w-full px-[80px] py-[30px]'>
+    <header className='lg:block hidden relative w-full px-[80px] py-[30px]'>
 
     <div className='flex justify-between items-center'>
       {/* left part */}
