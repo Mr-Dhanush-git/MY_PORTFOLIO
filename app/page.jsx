@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 export default function Home() {
   return (
     <main>
-        <div className="header_parent flex">
+        <div className="header_parent flex bg-[#FCFBFD]">
           <Header/>
           <Navbar/>
           <Hero/>

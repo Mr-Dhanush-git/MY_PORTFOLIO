@@ -108,7 +108,7 @@ const Cursor = () => {
         top-0 left-0  
         w-[20px] h-[20px]
         pointer-events-none
-        z-[100]' 
+        z-[110]' 
     />   
 
 
@@ -120,13 +120,13 @@ const Cursor = () => {
         w-[40px] h-[40px] 
         pointer-events-none
         opacity-0
-        z-[100]'
+        z-[110]'
     />   
 
 
     <div
         ref = {nameRef}
-        className='z-[100] 
+        className='z-[110] 
         absolute 
         top-2 left-3 
         pointer-events-none 
