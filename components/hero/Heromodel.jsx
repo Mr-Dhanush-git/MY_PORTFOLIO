@@ -1,25 +1,76 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const Heromodel = () => {
-  const videoRef = useRef(null);
+  const video1Ref = useRef(null);
+  const video2Ref = useRef(null);
+
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1.4;
+    if (video1Ref.current) {
+      video1Ref.current.playbackRate = 1.4;
+    }
+
+    if (video2Ref.current) {
+      video2Ref.current.playbackRate = 1.4;
+    }
+  }, []);
+
+  const handleMouseEnter = () => {
+    const video = video2Ref.current;
+
+    if (!video) return;
+
+    video.currentTime = 0;
+    video.play();
+
+    setHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
+
+
+  useEffect(() => {
+    if (video1Ref.current) {
+      video1Ref.current.playbackRate = 1.4;
     }
   })
 
   return (
-    <div className='relative'>
+    <div className='relative bottom-140 scale-75 right-10'
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <video
-        ref = {videoRef}
-        className='w-full h-full object-contain relative bottom-130 scale-75 right-10' 
+        ref = {video1Ref}
+        className={`
+          w-full h-full object-contain scale-100
+          transition-transform duration-200
+          ${hover ? "opacity-0" : "opacity-100"}
+        `}
         src="videos/video1.mp4"
         autoPlay
         muted
         playsInline
         preload='auto'/>
+
+
+      <video
+        ref={video2Ref}
+        className={`
+          absolute inset-0
+          w-full h-full object-contain
+          transition-transform duration-200 scale-100
+          ${hover ? "opacity-100" : "opacity-0"}
+        `}
+        src="/videos/video1.mp4"
+        muted
+        playsInline
+        preload="auto"
+      />
 
     </div>
   )
