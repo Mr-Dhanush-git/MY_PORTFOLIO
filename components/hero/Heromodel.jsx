@@ -5,6 +5,8 @@ const Heromodel = () => {
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
 
+  
+
   const [hover, setHover] = useState(false);
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const Heromodel = () => {
   };
 
   const handleMouseLeave = () => {
-    setHover(false);
+    // setHover(false);
   };
 
 
@@ -66,7 +68,7 @@ const Heromodel = () => {
           transition-transform duration-200 scale-100
           ${hover ? "opacity-100" : "opacity-0"}
         `}
-        src="/videos/video1.mp4"
+        src="/videos/video3.mp4"
         muted
         playsInline
         preload="auto"
