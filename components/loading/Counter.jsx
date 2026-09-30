@@ -28,7 +28,7 @@ const Counter = () => {
   return (
     <div className='relative inline-block right-6'>
       <img 
-      src="images/strawHat.png" 
+      src="images/strawHat2.png" 
       alt="strawHat" 
       className='w-20 h-20 absolute -left-12 -top-4 animate-[spin_0.5s_linear_infinite]' 
       />

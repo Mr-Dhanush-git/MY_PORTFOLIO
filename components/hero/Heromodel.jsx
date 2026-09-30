@@ -9,10 +9,18 @@ const Heromodel = () => {
 
   const [hover, setHover] = useState(false);
 
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      if (video1Ref.current) {
+        video1Ref.current.playbackRate = 1.4;
+        video1Ref.current.play();
+      }
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
-    if (video1Ref.current) {
-      video1Ref.current.playbackRate = 1.4;
-    }
 
     if (video2Ref.current) {
       video2Ref.current.playbackRate = 1.4;
@@ -35,11 +43,6 @@ const Heromodel = () => {
   };
 
 
-  useEffect(() => {
-    if (video1Ref.current) {
-      video1Ref.current.playbackRate = 1.4;
-    }
-  })
 
   return (
     <div className='relative bottom-140 scale-75 right-10'
@@ -54,7 +57,6 @@ const Heromodel = () => {
           ${hover ? "opacity-0" : "opacity-100"}
         `}
         src="videos/video1.mp4"
-        autoPlay
         muted
         playsInline
         preload='auto'/>
