@@ -102,11 +102,11 @@ const Cursor = () => {
 
     <img
         ref={defaultCurRef}
-        src="/CustomCursor/Gear5/gear5cursor.png"
+        src="/images/cursor.png"
         alt=""
         className='fixed
         top-0 left-0  
-        w-[20px] h-[20px]
+        w-[40px] h-[40px]
         pointer-events-none
         z-[110]' 
     />   
